@@ -8,10 +8,10 @@ export type GridCard = {
 
 
 export function GenerateGridCards(gridSize: number, contentGenerator: () => JSX.Element): GridCard[] {
-    var cards = [];
-    var numberOfPairs = (gridSize * gridSize) / 2;
-    for (var i = 0; i < numberOfPairs; i++) {
-        var card = { id: i, content: contentGenerator() };
+    const cards = [];
+    const numberOfPairs = (gridSize * gridSize) / 2;
+    for (let i = 0; i < numberOfPairs; i++) {
+        const card = { id: i, content: contentGenerator() };
         cards.push(card);
         cards.push({ ...card })
     }
@@ -33,7 +33,7 @@ function ShuffleArray<T>(array: T[]): T[] {
 }
 
 export function GenerateColourCardContent(): JSX.Element {
-    var rndColor = getRandomHexColor()
+    const rndColor = getRandomHexColor()
 
     return <div className="w-full h-full" style={{ backgroundColor: rndColor }}> </div>
 }

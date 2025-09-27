@@ -29,7 +29,7 @@ export default function MemoryContainer({ gridSize = 4, cards, onMatch, onGameEn
 
     useEffect(() => {
         const falsyMatch = async (time: number) => {
-            const res = await new Promise<string>((resolve) =>
+            const _ = await new Promise<string>((resolve) =>
                 setTimeout(() => resolve(""), time)
             );
             setSelectedCards([]);
@@ -37,7 +37,7 @@ export default function MemoryContainer({ gridSize = 4, cards, onMatch, onGameEn
         };
 
         const correctMatch = async (time: number) => {
-            const res = await new Promise<string>((resolve) =>
+            const _ = await new Promise<string>((resolve) =>
                 setTimeout(() => resolve(""), time)
             );
             setRemovedCards([...removedCards, ...selectedCards.map(c => c.id)]);
@@ -68,7 +68,7 @@ export default function MemoryContainer({ gridSize = 4, cards, onMatch, onGameEn
         setRemovedCards([]);
     }, [cards]);
 
-    var canInteractStyle = selectedCards.length < 2 ? "" : "pointer-events-none";
+    const canInteractStyle = selectedCards.length < 2 ? "" : "pointer-events-none";
 
     return <div style={gridColsStyle} className="relative grid max-w-[80%] bg-gray-200 rounded-lg gap-4 p-4">
         {cards.map((card, i) => (
