@@ -21,6 +21,7 @@ export default function MemoryContainer({ gridSize = 4, cards, onMatch, onGameEn
     const [removedCards, setRemovedCards] = useState<number[]>([]);
 
     const gridColsStyle = { gridTemplateColumns: `repeat(${gridSize}, 1fr` };
+    const canInteractStyle = selectedCards.length < 2 ? "" : "pointer-events-none";
 
     const onCardClick = (cardIds: CardIds) => {
         if (selectedCards.some(ids => ids.id === cardIds.id)) return;
@@ -64,11 +65,10 @@ export default function MemoryContainer({ gridSize = 4, cards, onMatch, onGameEn
     }, [removedCards]);
 
     useEffect(() => {
+        // reset board if new cards are generated
         setSelectedCards([]);
         setRemovedCards([]);
     }, [cards]);
-
-    const canInteractStyle = selectedCards.length < 2 ? "" : "pointer-events-none";
 
     return <div style={gridColsStyle} className="relative grid max-w-[80%] bg-gray-200 rounded-lg gap-4 p-4">
         {cards.map((card, i) => (
