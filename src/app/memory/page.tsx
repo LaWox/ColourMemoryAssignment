@@ -11,7 +11,7 @@ export default function MemoryPage() {
     const [cards, setCards] = useState<GridCard[]>([]);
     const [points, setPoints] = useState(0);
     const [endOfGameModalOpen, setEndOfGameModalOpen] = useState(false);
-    const gridSize = 2;
+    const gridSize = 4;
 
     useEffect(() => {
         const generatedCards = GenerateGridCards(gridSize, GenerateColourCardContent);
