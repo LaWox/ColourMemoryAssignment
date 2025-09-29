@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { GridCard } from "../../../utils/gridGeneration";
+import { GridCard } from "../../../../utils/gridGeneration";
 import MemoryCard from "./memoryCard";
 
 type Props = {

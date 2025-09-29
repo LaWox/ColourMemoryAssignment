@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { GenerateColourCardContent, GenerateGridCards, GridCard } from "../../../utils/gridGeneration";
-import MemoryContainer from "./memoryContainer";
-import GameOverDrawer from "./gameOverDrawer";
-import ResetButton from "./resetButton";
-import PointsIndicator from "./pointsIndicator";
+import MemoryContainer from "./components/memoryContainer";
+import GameOverDrawer from "./components/gameOverDrawer";
+import ResetButton from "./components/resetButton";
+import PointsIndicator from "./components/pointsIndicator";
 
 export default function MemoryPage() {
     const [cards, setCards] = useState<GridCard[]>([]);
     const [points, setPoints] = useState(0);
     const [endOfGameModalOpen, setEndOfGameModalOpen] = useState(false);
-    const gridSize = 4;
+    const gridSize = 2;
 
     useEffect(() => {
         const generatedCards = GenerateGridCards(gridSize, GenerateColourCardContent);
