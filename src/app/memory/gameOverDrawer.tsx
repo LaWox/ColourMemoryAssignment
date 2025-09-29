@@ -1,5 +1,4 @@
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { DrawerFooter, DrawerClose } from "@/components/ui/drawer";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import ResetButton from "./resetButton";
 
 type Props = {
@@ -16,7 +15,7 @@ export default function GameOverDrawer({ points, onReset, isOpen, onCloseModal }
     }
 
     return <Dialog open={isOpen}>
-        <DialogContent className="">
+        <DialogContent showCloseButton={false} >
             <DialogHeader className="text-center justify-items-center grid gap-4">
                 <DialogTitle>You got {points} points!!</DialogTitle>
                 <DialogDescription>
@@ -26,11 +25,11 @@ export default function GameOverDrawer({ points, onReset, isOpen, onCloseModal }
                 </DialogDescription>
                 <ResetButton onClick={onResetClicked} />
             </DialogHeader>
-            <DrawerFooter >
-                <DrawerClose className="bg-gray-200 rounded-md p-2 cursor-pointer" onClick={onCloseModal} >
+            <DialogFooter className="mx-auto justify-items-center grid gap-4">
+                <DialogClose onClick={onCloseModal} className="cursor-pointer border-2 border black rounded-lg px-4 py-2">
                     Close
-                </DrawerClose>
-            </DrawerFooter>
+                </DialogClose>
+            </DialogFooter>
         </DialogContent>
     </Dialog>
 }
